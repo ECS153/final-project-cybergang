@@ -22,4 +22,4 @@ Luis:
 
 Links:
 Design Doc: https://docs.google.com/document/d/1dxKCxo_ZBNUqZASNTLIDUAgwy71FFP8-uUImAMiroCY/edit?usp=sharing
-Video:
+Video: https://drive.google.com/file/d/1U4x9Cw_A6rHVt4wDOppqLlLzaeHC8RBL/view?usp=sharing
