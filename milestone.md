@@ -8,17 +8,17 @@ For our meeting this week, we discussed what our Vault app would do. We decided 
 ##Julia: 
   1. Last week I implemented the front end of the web application after understanding what our group wanted, nothing much so far. 
   2. This Week I plan on polishing the front end completely so it doesnt have to be tampered with anymore Then we can focus on the backend.
-  3. Stuck on knowing what we should focus more effor on, authentication and logins or creating a secure web app that can carry sensitive data.
+  3. Stuck on knowing what we should focus more effort on, authentication and logins or creating a secure web app that can carry sensitive data.
 
 ##Steven: 
-  1. 
+  1. Researched what we can use to implement our web app moving forward, for now decided we could make good use of node.js and express.
   2. Plan to set up our database this week that will store basic user information and safely store passwords. 
   3. I am currenlty stuck on deciding what database to use. 
 
 ##Luis: 
-  1. 
-  2. 
-  3. 
+  1. Created the design doc and project proposal.
+  2. Research plausable ways of preventing attackers from taking over user accounts, and different ways of attacking our web app so we can come up with solutions to these problems.
+  3. Stuck on how we can make our vault application a place that can actually hold important data. 
 
 Links:
 Design Doc: https://docs.google.com/document/d/1dxKCxo_ZBNUqZASNTLIDUAgwy71FFP8-uUImAMiroCY/edit?usp=sharing
