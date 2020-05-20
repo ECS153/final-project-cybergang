@@ -21,6 +21,6 @@ Stuck on what information we should try to at least store, if time permits.
 
 ##Luis:
 
-Created milestone2.md and helped create a very surface level login feature without any of the security measures.
+Created milestone2.md and helped work on a very surface level login feature without any of the security measures.
 For this upcoming week I will create a meaningful flow of how our login/sign up process should look like with the time constraints.
 I am stuck on how it is that we can include faceID in our code. Is there a general source code available that will trigger the feature?
