@@ -6,13 +6,19 @@ For our meeting this week, we discussed what was attainable for the overall perf
 
 ##Julia:
 
-Last week I implemented the sign up interface and set up the database we will be using. This Week I plan on finishing up the backend logic of our login system. Stuck on authentication flow. ##Steven:
+Last week I implemented the sign up interface and set up the database we will be using. This Week I plan on finishing up the backend logic of our login system. Stuck on authentication flow. 
+
+##Steven:
 
 Last week I created our design doc and did plenty of research with new ways we can secure login information, tampered a bit with password salting. Plan on actually implementing some sort of password salting. Stuck on what information we should try to at least store, if time permits.
 
 ##Luis:
 
 Created milestone2.md and helped work on a very surface level login feature without any of the security measures. For this upcoming week I will create a meaningful flow of how our login/sign up process should look like with the time constraints. I am stuck on how it is that we can include faceID in our code. Is there a general source code available that will trigger the feature?
+
+Links:
+Design Doc: https://docs.google.com/document/d/1vF44HYYd_oiALLqAWwnoPmtX37KvNlXIOgfNAI_xREI/edit?usp=sharing
+Video:
 
 
 #Milestone 1
