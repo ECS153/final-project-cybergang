@@ -18,7 +18,7 @@ Created milestone2.md and helped work on a very surface level login feature with
 
 Links:
 Design Doc: https://docs.google.com/document/d/1vF44HYYd_oiALLqAWwnoPmtX37KvNlXIOgfNAI_xREI/edit?usp=sharing
-Video:
+Video: https://drive.google.com/open?id=1PtyTs9cYC9bd4mt1-wYQuP30PsI8JkN0
 
 
 #Milestone 1
