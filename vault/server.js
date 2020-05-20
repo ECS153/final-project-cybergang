@@ -50,14 +50,16 @@ app.get("/showUserData", function(req, res) {
 //we are going to change this so that we insert a registered person into the database!
 app.use(bodyParser.json());
 // gets JSON data into req.body
+var usersName;
+var usersPassword;
 app.post('/registerUser', function (req, res) {
   
   console.log('entering server app.post... req.body = ');
   console.log(req.body);
   
   //put new user into database!
-  let usersName = req.body.username;
-  let usersPassword = req.body.password;
+  var usersName = req.body.username;
+  var usersPassword = req.body.password;
   
   cmd = "INSERT INTO userLogins (username, password) VALUES (?, ?) ";
   loginDB.run(cmd, usersName, usersPassword, function(err) {
@@ -65,6 +67,21 @@ app.post('/registerUser', function (req, res) {
       console.log("DB insert error", err.message);
     } else {
       res.send(usersName);
+    }
+  });
+  
+});
+
+app.post('/existingUser', function(req, res){
+  console.log('entering server app.post... req.body = ');
+  console.log(req.body);
+  
+  var usersName = req.body.username;
+  var usersPassword = req.body.password;
+  cmd = "SELECT username FROM userLogins";
+  loginDB.run(cmd, usersName, usersPassword, function(err){
+    if (err){
+      console.log("error", err.message);
     }
   });
   
