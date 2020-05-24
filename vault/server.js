@@ -24,23 +24,6 @@ app.get("/", function (request, response) {
 });
 
 
-//this gets a row of data given a primary key
-//we are going to change this code so it does something else after a user logs in
-//but this is for later, we dont use this code right now. 
-app.get("/showUserData", function(req, res) {
-  
-  let xcmd = 'SELECT * FROM userLogins WHERE username = ?';
-  loginDB.get(xcmd, req.query.username, function ( err, val ) { //username might need to be changed to id for query reasons 
-      if (err) { 
-        console.log("error: ",err.message);
-      }else { 
-        console.log( "got: ", val); 
-        res.send(val);
-      }
-
-  });
-  
-});
 
 
 //=================================== Next, the the POST AJAX query ==============================================
@@ -65,6 +48,8 @@ app.post('/registerUser', function (req, res) {
   loginDB.run(cmd, usersName, usersPassword, function(err) {
     if (err) {
       console.log("DB insert error", err.message);
+      //display message to the user that the username is not unique 
+      res.send(err.message);
     } else {
       res.send(usersName);
     }
@@ -72,17 +57,21 @@ app.post('/registerUser', function (req, res) {
   
 });
 
-app.post('/existingUser', function(req, res){
-  console.log('entering server app.post... req.body = ');
-  console.log(req.body);
+
+
+app.use(bodyParser.json());
+//finds the user given a primary key 
+app.get('/findUser', function(req, res) {
   
-  var usersName = req.body.username;
-  var usersPassword = req.body.password;
-  cmd = "SELECT username FROM userLogins";
-  loginDB.run(cmd, usersName, usersPassword, function(err){
-    if (err){
-      console.log("error", err.message);
-    }
+  let xcmd = 'SELECT * FROM UserLogins WHERE username = ?'; //change id to username
+  loginDB.get(xcmd, req.query.username, function ( err, val ) {    
+      if (err) { 
+        console.log("error: ",err.message);
+      }else { 
+        console.log( "got: ", val); 
+        res.send(val);
+      }
+
   });
   
 });
