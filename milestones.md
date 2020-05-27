@@ -14,7 +14,8 @@ Last week I worked on a design doc. I also was able to research using salt to he
 Last week I worked on the milestone doc. I helped create the error management for email and phone authentication. I also helped fix a bug that would allow a user from signing up without putting anything in the field of email/phone number input. Next week, I hope to have email and phone authentication working. I am still struggling with understanding how Twilio might come into play, or if we can simply verify a working phone authentication using our own phone numbers.
 
 Links:
-Design Doc: 
+Design Doc: https://docs.google.com/document/d/1DYYsZlucBl-P8maRv2sTeICwq7Cl_6QI3dBPEs9IS-Q/edit?usp=sharing
+
 Video: 
 
 #Milestone 2
