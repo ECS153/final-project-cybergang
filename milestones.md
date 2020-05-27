@@ -16,7 +16,7 @@ Last week I worked on the milestone doc. I helped create the error management fo
 Links:
 Design Doc: https://docs.google.com/document/d/1DYYsZlucBl-P8maRv2sTeICwq7Cl_6QI3dBPEs9IS-Q/edit?usp=sharing
 
-Video: 
+Video: https://drive.google.com/open?id=1N0xURpDhvqJkEQdl1B5gVIoiEX6bun1w
 
 #Milestone 2
 
