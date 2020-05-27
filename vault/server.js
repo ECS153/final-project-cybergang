@@ -33,8 +33,7 @@ app.get("/", function (request, response) {
 //we are going to change this so that we insert a registered person into the database!
 app.use(bodyParser.json());
 // gets JSON data into req.body
-var usersName;
-var usersPassword;
+
 app.post('/registerUser', function (req, res) {
   
   console.log('entering server app.post... req.body = ');
@@ -58,18 +57,17 @@ app.post('/registerUser', function (req, res) {
 });
 
 
-
 app.use(bodyParser.json());
 //finds the user given a primary key 
-app.get('/findUser', function(req, res) {
+app.post('/findUser', function(req, res) {
   
-  let xcmd = 'SELECT * FROM UserLogins WHERE username = ?'; //change id to username
-  loginDB.get(xcmd, req.query.username, function ( err, val ) {    
+  let xcmd = 'SELECT * FROM UserLogins WHERE username = ?';
+  loginDB.get(xcmd, req.body.username, function ( err, val ) {    
       if (err) { 
         console.log("error: ",err.message);
       }else { 
         console.log( "got: ", val); 
-        res.send(val);
+        res.send(val); //send entire row
       }
 
   });

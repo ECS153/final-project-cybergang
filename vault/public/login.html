@@ -14,19 +14,20 @@
     <header>
       V A U L T
     </header>
-    
+     
 		<div class="login-form">
 			<h1>Login to Vault </h1>
-			<form action="auth" method="POST">
-				<input type="text" name="username" placeholder="Username" required>
-				<input type="password" name="password" placeholder="Password" required>
-				<div class="btn" id="login" onclick="">Login</div>
+      <h2 id="loginError"> Username or password is incorrect</h2>
+				<input id="username" type="text" name="username" placeholder="Username" required>
+				<input id="password" type="password" name="password" placeholder="Password" required>
+				<div class="btn" id="login" onclick="findUser()" >Login</div>
 				
         <hr class="solid">
         
 				<h3> New to Vault? Lets make a new account for you!</h3>
 				<div id="btn" onclick="window.location.href = 'https://dandelion-broad-cello.glitch.me/register.html';"> New Vault Member </div>
-			</form>
 		</div>
+    
+  <script src="./loginScript.js"></script>
 	</body>
 </html>
