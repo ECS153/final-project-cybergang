@@ -1,8 +1,22 @@
+#Milestone 3
+
+26 May 2020 - 1 Jun 2020
+
+For our meeting this week, we worked through the flow of authentication we want our web application to have. We prodmenitley are focusing on getting the email authentication working correctly and getting the number authentication working as well. This week we got all the error handling done and are hoping to wrap up with email authentication before our presentation.
+
+##Julia:
+Last week I implemented the error handling on the login and sign up process. I also made the video corresponding to the week's milestone. For the upcoming week, I hope to finish helping with email and phone authentication, as it is the most important aspect of our application. Storing data will be useful in the longrun, but we have prioritized having a safe login. I am having slight trouble with figuring out how we will distinguish a phone number and email in our data base.
+
+##Steven:
+Last week I worked on a design doc. I also was able to research using salt to help mask passwords. Finally, I helped with the email and number error handling. For the upcoming week, I hope to have been able to use salt in the passwords that we store as well as finish up email authentication. I am struggling to grasp where it is that we will put our salt mechanism in our code.
+##Luis:
+Last week I worked on the milestone doc. I helped create the error management for email and phone authentication. I also helped fix a bug that would allow a user from signing up without putting anything in the field of email/phone number input. Next week, I hope to have email and phone authentication working. I am still struggling with understanding how Twilio might come into play, or if we can simply verify a working phone authentication using our own phone numbers.
+
 #Milestone 2
 
 19 May 2020 - 26 May 2020
 
-For our meeting this week, we discussed what was attainable for the overall performance of our application. We realized we might not be able to go as far as creating new ways to secure the contents in our web application. However, we do know that it'll be a secure application through login means. Overall, we were able to create a good login system, without the security measures in place yet. This'll be our primary objective for the primary week. We will strive to finish the login logic and authentication process.
+For our meeting this week, we discussed what was attainable for the overall performance of our application. We realized we might not be able to go as far as creating new ways to secure the contents in our web application. However, we do know that it'll be a secure application through login means. Overall, we were able to create a good login system, without the security measures in place yet. This'll be our primary objective for the following week. We will strive to finish the login logic and authentication process.
 
 ##Julia:
 
