@@ -14,6 +14,7 @@ Last week I worked on the milestone doc. I helped create the error management fo
 
 #Milestone 2
 
+
 19 May 2020 - 26 May 2020
 
 For our meeting this week, we discussed what was attainable for the overall performance of our application. We realized we might not be able to go as far as creating new ways to secure the contents in our web application. However, we do know that it'll be a secure application through login means. Overall, we were able to create a good login system, without the security measures in place yet. This'll be our primary objective for the following week. We will strive to finish the login logic and authentication process.
