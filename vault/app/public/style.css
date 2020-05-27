@@ -1,0 +1,151 @@
+
+
+body {
+	background-image: linear-gradient(to right, purple , blue);
+}
+
+header {
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 35px;
+  padding: 20px;
+}
+
+.login-form {
+	width: 300px;
+	margin: 0 auto;
+	font-family: Tahoma, Geneva, sans-serif;
+	background-color: white;
+	height: 100%;
+	width: 400px;
+	border-radius: 10px;
+	padding: 50px;
+  align-items: center;
+  text-align: center;
+}
+
+h1 {
+	text-align: center;
+	color: #4d4d4d;
+	font-size: 24px;
+	padding: 20px 0 20px 0;
+}
+
+h2 {
+  text-align: center;
+	color: DarkGray;
+	font-size: 15px;
+	padding: 0 0 20px 0;
+}
+
+#criteria {
+  display: none;
+  color: DarkGray;
+  font-size: 15px;
+}
+
+#authentication {
+  display: none;
+  color: DarkGray;
+  font-size: 15px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+#error1 {
+  display: none;
+  justify-content: center;
+  padding: 0 0 20px 0;
+  color: red;
+}
+
+#error2 {
+  display:none;
+  justify-content: center;
+  padding: 0 0 20px 0;
+  color: red;
+}
+
+#error3 {
+  display:none;
+  justify-content: center;
+  padding: 0 0 20px 0;
+  color: red;
+}
+
+#error4 {
+  display:none;
+  justify-content: center;
+  padding: 0 0 20px 0;
+  color: red;
+}
+
+#error5 {
+  display:none;
+  justify-content: center;
+  padding: 0 0 20px 0;
+  color: red;
+}
+
+#loginError {
+  display:none;
+  justify-content: center;
+  padding: 0 0 20px 0;
+  color: red;
+}
+
+h3 {
+  text-align: center;
+	color: #4d4d4d;
+	font-size: 15px;
+	padding: 20px 0 20px 0;
+}
+
+
+
+.login-form input[type="password"],
+.login-form input[type="text"] {
+	width: 100%;
+	padding: 15px;
+	border: 1px solid #dddddd;
+	margin-bottom: 15px;
+	box-sizing:border-box;
+}
+
+.login-form input[type="email"]{
+  width: 100%;
+	padding: 15px;
+	border: 1px solid #dddddd;
+	margin-bottom: 15px;
+	box-sizing:border-box;
+}
+
+.login-form input[type="submit"] {
+	width: 100%;
+	padding: 15px;
+	background-color: #535b63;
+	border: 0;
+	box-sizing: border-box;
+	cursor: pointer;
+	font-weight: bold;
+	color: #ffffff;
+	border-radius: 5px;
+}
+
+#btn, #save, #login {
+	display: flex;
+	background-color: #535b63;
+	border-radius: 5px;
+	color: white;
+	justify-content: center;
+	cursor: pointer;
+	padding: 10px;
+}
+
+/* Solid border */
+hr.solid {
+  border-top: 1px solid grey;
+  margin-top: 30px;
+}

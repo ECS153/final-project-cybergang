@@ -1,0 +1,21 @@
+{
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.16.2",
+    "form-data": "^3.0.0",
+    "multer": "^1.4.2",
+    "sqlite3": "^4.2.0"
+  },
+  "engines": {
+    "node": "8"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "license": "MIT"
+}

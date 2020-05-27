@@ -1,0 +1,62 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New User!</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/reset.css">
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  
+  <body>
+    <header>
+      V A U L T
+    </header>
+    
+
+    
+    <main>
+        <div class="login-form">
+          <h1>Lets Make a new Account!</h1>
+          <h2 id="welcome"> To get started enter a unique username, a strong password, and a valid email or phone number. </h2>
+          <h2 id="criteria"> Passwords must have 8 characters, 2 capital letters, 2 special characters, 2 numbers, and no spaces.</h2>
+          <h2 id="authentication"> Please Enter a valid email or phone number. </h2>
+          
+          <div id="error1"> Sorry, but that username is taken. </div>
+          <div id="error2"> Passwords don't match, try entering them again. </div>
+          <div id="error3"> Looks like you left a field empty :)</div>
+          <div id="error4"> Sorry, but this password is not strong enough.</div>
+          <div id="error5"> Sorry, you have an incorrect email or phone number.</div>
+          
+            <input id="username" onclick="appear('criteria', 'welcome')" onselect="appear('criteria', 'welcome')" type="text" name="username" placeholder="Username" required>
+            <input id="userpassword" onclick="appear('welcome', 'criteria')" onselect="appear('welcome', 'criteria')" type="password" name="password" placeholder="Password" required>
+            <input id="userpassword2" onclick="appear('welcome', 'criteria')" onselect="appear('welcome', 'criteria')" type="password" name="password" placeholder="Re-Enter Password" required>
+            <input id="emailOrSMS" onclick="appear('criteria','authentication')" onselect="appear('criteria', 'authentication')" type="email" name="email" placeholder="Email or SMS (XXX-XXX-XXXX)" required>
+            
+            <div class="btn" id="save" onclick="on()">Create Account</div>
+  
+
+            <hr class="solid">
+          
+            <h3> Already have a Vault account? Lets get you logged in.</h3>
+            <div id="btn" onclick="window.location.href = 'https://dandelion-broad-cello.glitch.me/login.html';"> Login to Vault </div>
+        </div>
+    </main>
+    
+ 
+    <footer>
+      <p class="msg">
+         <!-- put a message here for your users -->
+      </p>
+       <!-- adds the glitch button at the bottom -->
+    <div class="glitchButton"></div>
+    <script src="https://button.glitch.me/button.js"></script>
+    <script src="./script.js"></script>
+    </footer>
+  
+  </body>
+</html>
