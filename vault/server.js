@@ -6,6 +6,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const sql = require('sqlite3').verbose();
+const nodemailer = require('nodemailer');
 
 const loginDB = new sql.Database("userLogins.db");////////////////////////////////////////////////////////////////////////
 
@@ -24,12 +25,59 @@ app.get("/", function (request, response) {
 });
 
 
+//=================================== Next, set up Nodemailer transport ==============================================
 
+function sendEmail(salt, email, username)
+{
+  
+  var link = "https://dandelion-broad-cello.glitch.me/authentication.html?id=" + username;
+  
+  var smtpTransport = nodemailer.createTransport({
+      service: "Gmail",
+      auth: {
+          user: "cybergangvault@gmail.com",
+          pass: "Vault123!"
+      }
+  });
+
+
+  let mailOptions = {
+      from: 'cybergangvault@gmail.com', // TODO: email sender
+      to: email, // TODO: email receiver
+      subject: 'Authenticate Vault Account',
+      text: 'Click the link below and use following code to authenticate your account.\n' + 'Code: '  + salt + '\nLink: ' + link
+  };
+
+  // Step 3
+  smtpTransport.sendMail(mailOptions, (err, data) => {
+      if (err) {
+          return console.log('Error occurs');
+      }
+      return console.log('Email sent!!!');
+  });
+}
+
+//=================================== Next, phone verification using twilio ==============================================
+
+function phoneVerification(salt, number, username){
+  const accountSid = 'AC502f8bf8ab68c82b8adaebe0652908f9';
+  const authToken = 'eac5c0d12dc189d25343e815481a1875';
+  const client = require('twilio')(accountSid, authToken);
+  var link = "https://dandelion-broad-cello.glitch.me/authentication.html?id=" + username;
+
+  client.messages
+    .create({
+       body: 'Click the link below and use following code to authenticate your account.\n' + 'Code: '  + salt + '\nLink: ' + link,
+       from: '+12055093537',
+       to: number
+     })
+    .then(message => console.log(message.sid));
+}
 
 //=================================== Next, the the POST AJAX query ==============================================
 
 
-// Handle a POST request for inserting POSTCARD to database
+// Handle a POST request for inserting to database
 //we are going to change this so that we insert a registered person into the database!
 app.use(bodyParser.json());
 // gets JSON data into req.body
@@ -40,17 +88,30 @@ app.post('/registerUser', function (req, res) {
   console.log(req.body);
   
   //put new user into database!
-  var usersName = req.body.username;
-  var usersPassword = req.body.password;
+  var userName = req.body.username;
+  var userPassword = req.body.password;
+  var userSalt = req.body.salt;
+  var userAuthData = req.body.authdata;
+  var userAuthType = req.body.authtype;
+  var userAuthStatus = 0;
   
-  cmd = "INSERT INTO userLogins (username, password) VALUES (?, ?) ";
-  loginDB.run(cmd, usersName, usersPassword, function(err) {
+  cmd = "INSERT INTO userLogins (username, password, salt, authData, authType, authStatus) VALUES (?, ?, ?, ?, ?, ?) ";
+  loginDB.run(cmd, userName, userPassword, userSalt, userAuthData, userAuthType, userAuthStatus, function(err) {
     if (err) {
       console.log("DB insert error", err.message);
       //display message to the user that the username is not unique 
       res.send(err.message);
     } else {
-      res.send(usersName);
+      
+      if (userAuthType == 'email'){
+        sendEmail(req.body.salt, req.body.authdata, req.body.username);
+      }
+      
+      if(userAuthType == 'phone'){
+        phoneVerification(req.body.salt, req.body.authdata, req.body.username);
+      }
+      
+      res.send(userName);
     }
   });
   
@@ -60,6 +121,8 @@ app.post('/registerUser', function (req, res) {
 app.use(bodyParser.json());
 //finds the user given a primary key 
 app.post('/findUser', function(req, res) {
+  
+  console.log(req.body.username);
   
   let xcmd = 'SELECT * FROM UserLogins WHERE username = ?';
   loginDB.get(xcmd, req.body.username, function ( err, val ) {    
@@ -75,6 +138,26 @@ app.post('/findUser', function(req, res) {
 });
 
 
+//this changes only a single column at a time for a given user
+app.post('/changeColumn', function(req, res) {
+  console.log("ENTERING CHANGE COLUMN");
+  
+  //this might be wrong. make sure to check this later julia
+  let xcmd = 'UPDATE UserLogins SET authStatus = ? WHERE username = ?';
+  
+  
+  loginDB.get(xcmd, 1, req.body.username, function ( err, val) {
+    if(err){
+      console.log("error: ", err.message);
+    } else {
+      console.log('updated table');
+      res.send(val); //i dont know what val would be in this situation 
+    }
+  });
+  
+});
+
+
 //==========================================listen for requests :)=================================================
 
 var listener = app.listen(process.env.PORT, function () {
@@ -84,7 +167,7 @@ var listener = app.listen(process.env.PORT, function () {
 //=================================================Build database===================================================
 
 
-// Actual table creation; only runs if "postcards.db" is not found or empty
+// Actual table creation; only runs if DB is not found or empty
 // Does the database table exist?
 let cmd = " SELECT name FROM sqlite_master WHERE type='table' AND name='UserLogins' ";
 loginDB.get(cmd, function (err, val) {
@@ -101,7 +184,7 @@ loginDB.get(cmd, function (err, val) {
 function createLoginDB() {
   // explicitly declaring the rowIdNum protects rowids from changing if the 
   // table is compacted; not an issue here, but good practice
-  const cmd = 'CREATE TABLE UserLogins ( username TEXT PRIMARY KEY UNIQUE, password TEXT)';
+  const cmd = 'CREATE TABLE UserLogins ( username TEXT PRIMARY KEY UNIQUE, password TEXT, salt TEXT, authData TEXT, authType TEXT, authStatus INTEGER)';
   loginDB.run(cmd, function(err, val) {
     if (err) {
       console.log("Database creation failure",err.message);
