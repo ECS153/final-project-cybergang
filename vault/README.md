@@ -3,7 +3,7 @@
 Overall, our vault application focuses on a safe login and protected passwords. 
 The application deals with error handling in the case of empty fields or any sort of 
 way by which users can bypass a step. We register users and store them in a database 
-that contains fields for the user, password, authentication form and whether or not the
+that contains fields for the user, password, salt, authentication form and whether or not the
 account is verified. Most of the contributions for the overall design and flow of html
 of the application, including setting up the database itself was done by Julia. To differentiate
 between email and phone verification, Luis and Steven worked on functions that would allow
